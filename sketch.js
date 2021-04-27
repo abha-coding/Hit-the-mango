@@ -37,6 +37,8 @@ function setup() {
 	mangoes5 = new Mango(1360,210);
 	mangoes6 = new Mango(1000,70);
 
+	ground = new Ground(700,645,1300,7);
+
 	chain = new Chain(stone.body,{x:225,y:470});
 
 	Engine.run(engine);
@@ -60,6 +62,8 @@ function draw() {
   mangoes4.display();
   mangoes5.display();
   mangoes6.display();
+
+  ground.display();
 
   chain.display();
 
@@ -88,7 +92,7 @@ function detectCollision(stone,mangoes)
 	stoneBodyPosition=stone.body.position
 
 	var distance = mangoesBodyPosition.x- stoneBodyPosition.x
-	if(distance<=5)
+	if(distance<=60)
 	{
 		Matter.Body.setStatic(mangoes.body,false);
 	}
